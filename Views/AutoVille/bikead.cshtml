@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@{
+    if(null != Session["email"])
+    {
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/menu/css/simple_menu.css">
+    <link rel="stylesheet" href="~/Content/css/nivo-slider.css" type="text/css" media="screen">
+</head>
+
+<body>
+    <div id="container">
+        
+        @Html.ActionLink("Log Out", "Ends", "Autoville", new { @style = "float:right;"})
+
+        <h1>Post Advertisment</h1>
+
+        <div class="one-half last">
+            <div class="heading_bg">
+                <h2>Enter Details To Post Ad For Bike</h2>
+            </div>
+            <br />
+            <form method="post" action="~/AutoVille/Adv" enctype="multipart/form-data">
+
+                Make:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="make" placeholder="Honda" size="30">
+                <br><br>
+                Model:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="cmodel" placeholder="Corolla" size="30">
+                <br><br>
+                Color:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="color" placeholder="Cool Red" size="30">
+                <br><br>
+                Year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="year" placeholder="2014" size="30">
+                <br><br>
+                HorsePower:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="hp" placeholder="125" size="30">
+                <br><br>
+                Registered City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="regc" placeholder="Lahore" size="30">
+                <br /><br />
+                Mileage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="mileage" placeholder="112547" size="30">
+                <br /><br />
+                Asking Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="price" placeholder="1000000" size="30">
+                <br /><br />
+                Additional Comments:&nbsp;
+                <input type="text" name="comm" placeholder="First Owner" size="30" height="20">
+                <br /><br />
+                Upload Image:
+                <input type="file" id="image" name="Path" />
+                <br /><br />
+
+                <input type="hidden" name="mail" value="@Session["email"]">
+                <input type="hidden" name="type" value="bike" />
+
+                <br />
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <input type="submit" value="Post Ad" />
+
+                <br /><br />
+
+            </form>
+
+        </div>
+        <div style="clear:both; height: 40px"></div>
+    </div>
+</body>
+        }
+    
+    else
+    {
+        Response.Redirect("~/AutoVille/log");
+    }
+}
